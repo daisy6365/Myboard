@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+    <ImageView
+        android:id="@+id/bulbicon"
+        android:src="@drawable/bulbicon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="30dp"
+        />
+    <TextView
+        android:text="회원가입"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        />
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <EditText
+                android:id="@+id/join_email"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:ems="18"
+                android:background="#ffffff"
+                android:hint="Email"
+                android:layout_marginBottom="10dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <EditText
+                android:id="@+id/join_password"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:ems="18"
+                android:background="#ffffff"
+                android:hint="Password"
+                android:layout_marginBottom="20dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <EditText
+                android:id="@+id/join_name"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:ems="18"
+                android:background="#ffffff"
+                android:hint="Name"
+                android:layout_marginBottom="20dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <EditText
+                android:id="@+id/join_nickname"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:ems="18"
+                android:background="#ffffff"
+                android:hint="Nickname"
+                android:layout_marginBottom="20dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/join_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="#616161"
+            android:text="가입"
+            android:layout_gravity="right"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
