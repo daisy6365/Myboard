@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragment.Mypage">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:background="@drawable/round"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
         >
         <ImageView
             android:id="@+id/profile_img"
@@ -23,30 +29,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="nickname"
-                android:id="@+id/profile_nickcname"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="name"
-                android:id="@+id/profile_name"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                />
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="email"
                 android:id="@+id/profile_email"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="nickname"
+                android:id="@+id/profile_nickcname"
                 android:textStyle="bold"
                 android:textSize="20dp"
                 />
@@ -61,8 +60,9 @@
         android:orientation="vertical"
         android:gravity="center_vertical"
         android:padding="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/round"
+
         >
         <TextView
             android:id="@+id/change_password"
@@ -74,16 +74,7 @@
             android:layout_margin="20dp"
 
             />
-        <TextView
-            android:id="@+id/change_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:text="이메일 변경"
-            android:layout_margin="20dp"
 
-            />
         <TextView
             android:id="@+id/change_nickname"
             android:layout_width="wrap_content"
@@ -113,6 +104,10 @@
         android:orientation="vertical"
         android:gravity="center_vertical"
         android:padding="20dp"
+        android:layout_margin="10dp"
+
+        android:background="@drawable/round"
+
         >
 
         <TextView

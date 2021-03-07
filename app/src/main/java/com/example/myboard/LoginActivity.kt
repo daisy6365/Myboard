@@ -5,7 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import kotlinx.android.synthetic.main.activity_join.*
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,53 +14,43 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class LoginActivity : AppCompatActivity() {
-    var loginServer:LoginServer? = null
+    val PREFERENCE = "data"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        //TODO 로그인 url 바꾸기
-        var retrofit = Retrofit.Builder()
-            .baseUrl("http://220.85.200.219")
-            .addConverterFactory(GsonConverterFactory.create())
-                //Json 문서를 받아서 자동으로 class 형태로 만들어줌
-            .build()
+        SharedPreference.openSharedPrepLogin(this)
+        email_login_btn.setOnClickListener {
+            Client.retrofitService.requestLogin(login_email.text.toString(), login_password.text.toString()).enqueue(object : Callback<Void> {
+                override fun onResponse(call: Call<Void>?, response: Response<Void>?) {
+                    when (response!!.code()) {
+                        200 -> {
+                            val sharedPreference = getSharedPreferences(PREFERENCE, 0)
+                            val editor = sharedPreference.edit()
 
-        var loginService : LoginService = retrofit.create(LoginService :: class.java)
+                            //로그인시 디바이스에 데이터 저장
+                            editor.putString("id", login_email.text.toString())
+                            editor.putString("pw", login_password.text.toString())
+                            //Shared에 변동사항 저장
+                            editor.apply()
+                            finish()
 
-        email_login.setOnClickListener {
-            var login_email = login_email.text.toString()
-            var login_password = login_password.text.toString()
+                            //메인화면으로 전환
+                            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        }
+                        405 -> Toast.makeText(this@LoginActivity, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
+                        500 -> Toast.makeText(this@LoginActivity, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
+                    }
+                }
 
-            loginService.requestLogin(login_email,login_password).enqueue(object : Callback<LoginServer>{
-                override fun onFailure(call: Call<LoginServer>, t: Throwable) {
-                    Log.e("LOGIN", t.message.toString())
-                    var dialog = AlertDialog.Builder(this@LoginActivity)
-                    dialog.setTitle("에러")
-                    dialog.setMessage("호출실패했습니다.")
-                    dialog.show()
+                override fun onFailure(call: Call<Void>?, t: Throwable?) {
 
                 }
 
-                override fun onResponse(call: Call<LoginServer>, response: Response<LoginServer>) {
-                    loginServer = response.body()
-                    // TODO 나중에 바꾸기
-                    Log.d("LOGIN","msg : "+loginServer?.msg)
-                    Log.d("LOGIN","code : "+loginServer?.code)
-                    var dialog = AlertDialog.Builder(this@LoginActivity)
-                    dialog.setTitle(loginServer?.msg)
-                    dialog.setMessage(loginServer?.code)
-                    dialog.show()
 
-                }
             })
         }
-        //회원가입
-        log_join_btn.setOnClickListener {
-            val intent = Intent(this, JoinActivity::class.java)
-            startActivity(intent)
-        }
 
-
+        log_join_btn.setOnClickListener { startActivity(Intent(this@LoginActivity, JoinActivity::class.java)) }
     }
 }
