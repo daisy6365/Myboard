@@ -12,16 +12,27 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MyBoard">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.MainActivity">
 
         </activity>
+        <activity android:name=".Activity.JoinActivity">
+        </activity>
+        <activity android:name=".Activity.FreeActivity">
+        </activity>
+        <activity android:name=".Activity.JobActivity">
+        </activity>
+        <activity android:name=".Activity.ClubActivity">
+        </activity>
+        <activity android:name=".Activity.FoodActivity">
+        </activity>
+
     </application>
 
 </manifest>

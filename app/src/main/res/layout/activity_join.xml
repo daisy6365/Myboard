@@ -71,20 +71,7 @@
                 android:layout_marginBottom="30dp"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-            <EditText
-                android:id="@+id/join_nickname"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:ems="18"
-                android:background="#ffffff"
-                android:hint="Nickname"
-                android:layout_marginBottom="30dp"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/join_btn"

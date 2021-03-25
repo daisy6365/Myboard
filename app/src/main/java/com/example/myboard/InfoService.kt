@@ -1,31 +1,35 @@
 package com.example.myboard
 
+import com.example.myboard.Model.LoginDTO
+import com.example.myboard.Model.PostDTO
+import com.google.gson.JsonObject
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 //서버로 전달
 interface InfoService {
 
-    @FormUrlEncoded
-    //Todo POST에 서버와 통신하기위한 값 적기
-    @POST("/app_login/")
-    fun requestLogin(
+    // Todo POST에 서버와 통신하기위한 값 적기
+    // @Json 방식
+    @Headers("Content-Type: application/json; charset=UTF-8")
+    @POST("/members/login")
+    abstract fun requestLogin(
         //로그인시 전달 값
-        @Field("login_email") login_email:String,
-        @Field("login_password") login_password:String
-    ): Call<Void>
+        @Body body : JsonObject
+    ): Call<LoginDTO>
+    // <> 안에 요청안에 데이터 or 응답에 대한 매핑
 
-    @FormUrlEncoded
     //Todo POST에 서버와 통신하기위한 값 적기
-    @POST("/app_join/")
-    fun requestJoin(
+    @Headers("Content-Type: application/json; charset=UTF-8")
+    @POST("/members")
+    abstract fun requestJoin(
         //회원가입시 전달 값
-        @Field("join_email") join_email:String,
-        @Field("join_password") join_password:String,
-        @Field("join_name") join_name:String,
-        @Field("join_nickname") join_nickname:String
-    ): Call<Void>
+        @Body body : JsonObject
+    ): Call<JsonObject>
+
+
+    @GET("/categories/{categoryId}/posts")
+    abstract fun requestAllData() : Call<PostDTO>
 
 }
+

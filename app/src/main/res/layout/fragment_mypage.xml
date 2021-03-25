@@ -44,7 +44,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="nickname"
+                android:text="name"
                 android:id="@+id/profile_nickcname"
                 android:textStyle="bold"
                 android:textSize="20dp"
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:text="닉네임 변경"
+            android:text="이메일 변경"
             android:layout_margin="20dp"
 
             />
