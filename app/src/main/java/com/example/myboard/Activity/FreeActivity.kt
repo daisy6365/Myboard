@@ -2,20 +2,11 @@ package com.example.myboard.Activity
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 //import com.example.myboard.Adapter.PostAdapter
 import com.example.myboard.Client
-import com.example.myboard.InfoService
-import com.example.myboard.Model.Photo
-import com.example.myboard.Model.PostDTO
+import com.example.myboard.Model.PostListDTO
 import com.example.myboard.R
-import kotlinx.android.synthetic.main.activity_board.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,8 +21,8 @@ class FreeActivity : AppCompatActivity() {
 
 
         Client.retrofitService.requestAllData()
-                .enqueue(object : Callback<PostDTO>{
-                    override fun onResponse(call: Call<PostDTO>, response: Response<PostDTO>) {
+                .enqueue(object : Callback<PostListDTO>{
+                    override fun onResponse(call: Call<PostListDTO>, response: Response<PostListDTO>) {
                         if (response.isSuccessful) {
                             val body = response.body()
                             body?.let {
@@ -40,7 +31,7 @@ class FreeActivity : AppCompatActivity() {
                         }
                     }
 
-                    override fun onFailure(call: Call<PostDTO>, t: Throwable) {
+                    override fun onFailure(call: Call<PostListDTO>, t: Throwable) {
                         Log.d(TAG,"Post data 에러")
                     }
                 })

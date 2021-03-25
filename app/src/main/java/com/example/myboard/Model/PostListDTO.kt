@@ -1,18 +1,17 @@
 package com.example.myboard.Model
 
+import android.provider.ContactsContract
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+import java.net.URL
 
-class PostDTO {
-    @SerializedName("d")
-    @Expose
-    val profile_img: String = ""
-
-    @SerializedName("email")
+class PostListDTO {
+    @SerializedName("writer")
     @Expose
     val name: String = ""
 
-    @SerializedName("email")
+    @SerializedName("title")
     @Expose
     var title: String = ""
 
@@ -22,20 +21,7 @@ class PostDTO {
 
     @SerializedName("email")
     @Expose
-    val photos: List<String> = listOf()
-
-
-    @SerializedName("email")
-    @Expose
     var like_count: Int = 0
-
-    @SerializedName("email")
-    @Expose
-    var comment_name : String = ""
-
-    @SerializedName("commentCount")
-    @Expose
-    var comment : String = ""
 
     @SerializedName("commentCount")
     @Expose

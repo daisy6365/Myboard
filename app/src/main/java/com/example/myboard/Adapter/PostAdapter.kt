@@ -1,17 +1,6 @@
 package com.example.myboard.Adapter
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import com.example.myboard.Model.Photo
-import com.example.myboard.Model.PostDTO
-import com.example.myboard.R
 
 //class PostAdapter (val postList : PostDTO, val context : Context)
 //    : RecyclerView.Adapter<PostAdapter.ViewHolder>(){

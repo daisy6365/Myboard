@@ -1,7 +1,7 @@
 package com.example.myboard
 
 import com.example.myboard.Model.LoginDTO
-import com.example.myboard.Model.PostDTO
+import com.example.myboard.Model.PostListDTO
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.http.*
@@ -29,7 +29,7 @@ interface InfoService {
 
 
     @GET("/categories/{categoryId}/posts")
-    abstract fun requestAllData() : Call<PostDTO>
+    abstract fun requestAllData() : Call<PostListDTO>
 
 }
 
