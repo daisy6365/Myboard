@@ -37,19 +37,22 @@ class JoinActivity : AppCompatActivity() {
             // 이메일, 비밀번호, 이름, 닉네임 서버로 보내기
             // Client.object에 xml id 연결하기 -> 서버에 보내줌
             Client.retrofitService.requestJoin(paramObject)
-                    .enqueue(object : Callback<JsonObject> {
-                        override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
-                            if (response.code() == 200) {
+                    .enqueue(object : Callback<Unit> {
+                        override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                            if (response.isSuccessful) {
                                 Log.d(TAG, "회원가입 성공")
-                                Toast.makeText(this@JoinActivity, "회원가입 성공", Toast.LENGTH_LONG).show()
+                                Toast.makeText(this@JoinActivity, "회원가입이 되었습니다. 다시 로그인해주세요.", Toast.LENGTH_LONG).show()
                                 val intent = Intent(applicationContext, LoginActivity::class.java)
                                 //화면 전환
                                 startActivity(intent)
                                 finish()
                             }
+                            else{
+                                Toast.makeText(this@JoinActivity, "회원가입 실패", Toast.LENGTH_LONG).show()
+                            }
 
                         }
-                        override fun onFailure(call: Call<JsonObject>?, t: Throwable?) {
+                        override fun onFailure(call: Call<Unit>?, t: Throwable?) {
                             Toast.makeText(this@JoinActivity, "회원가입 실패", Toast.LENGTH_LONG).show()
                         }
                     })

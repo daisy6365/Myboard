@@ -7,19 +7,16 @@ import java.io.Serializable
 import java.net.URL
 
 class PostListDTO {
-    @SerializedName("writer")
-    @Expose
-    val name: String = ""
 
     @SerializedName("title")
     @Expose
     var title: String = ""
 
-    @SerializedName("email")
+    @SerializedName("writer")
     @Expose
     var content: String = ""
 
-    @SerializedName("email")
+    @SerializedName("commentCount")
     @Expose
     var like_count: Int = 0
 

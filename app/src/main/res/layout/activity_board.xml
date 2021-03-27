@@ -35,7 +35,7 @@
         android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/free_board_recycler"
+        android:id="@+id/board_recycler"
         ></androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

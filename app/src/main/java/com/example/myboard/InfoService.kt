@@ -10,7 +10,9 @@ import retrofit2.http.*
 interface InfoService {
 
     // Todo POST에 서버와 통신하기위한 값 적기
-    // @Json 방식
+    // @Json 방식 말고 class 형태로 받아야함 -> DTO 필요
+
+
     @Headers("Content-Type: application/json; charset=UTF-8")
     @POST("/members/login")
     abstract fun requestLogin(
@@ -25,11 +27,13 @@ interface InfoService {
     abstract fun requestJoin(
         //회원가입시 전달 값
         @Body body : JsonObject
-    ): Call<JsonObject>
+    ): Call<Unit>
 
 
     @GET("/categories/{categoryId}/posts")
-    abstract fun requestAllData() : Call<PostListDTO>
+    abstract fun requestAllData(
+            @Header("X-AUTH-TOKEN") userToken : String
+    ) : Call<PostListDTO>
 
 }
 

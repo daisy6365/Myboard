@@ -1,5 +1,6 @@
 package com.example.myboard.Activity
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,22 +38,18 @@ class LoginActivity : AppCompatActivity() {
             Client.retrofitService.requestLogin(paramObject)
                     .enqueue(object : Callback<LoginDTO> {
                 override fun onResponse(call: Call<LoginDTO>, response: Response<LoginDTO>) {
-                    if (response.code() == 200) {
+                    if (response.isSuccessful) {
                         token = response.body()!!.token
                         //token 저장
-//                          val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
-//                          val editor = sp.edit()
-//                          editor.putString("login_sp", token)
-//                          editor.commit()
+                          val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
+                          val editor = sp.edit()
+                          editor.putString("login_token", token)
+                          editor.commit()
 
                         Log.d(TAG, "로그인 성공")
                         Toast.makeText(this@LoginActivity, "로그인에 성공하였습니다.", Toast.LENGTH_LONG).show()
                         //메인화면으로 전환
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
-
-                        //
-                        intent.putExtra("userToken", token)
-                        intent.putExtra("infoEmail", email)
 
                         startActivity(intent)
                         finish()
