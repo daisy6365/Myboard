@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.myboard.Client
+import com.example.myboard.Network.Client
 import com.example.myboard.Model.LoginDTO
 import com.example.myboard.R
 import com.google.gson.JsonObject

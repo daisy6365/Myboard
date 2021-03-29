@@ -1,4 +1,4 @@
-package com.example.myboard
+package com.example.myboard.Network
 
 import android.util.Log
 import okhttp3.OkHttpClient

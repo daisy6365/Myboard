@@ -4,6 +4,10 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class PostDTO {
+    //사진이 여러장이 첨부될수 있으므로 리스트 형태로 보내줄 것인지
+    //토큰문제
+    //Swagger보니까 좀 다른것같음
+
     @SerializedName("d")
     @Expose
     val profile_img: String = ""

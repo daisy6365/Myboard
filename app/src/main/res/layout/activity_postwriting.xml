@@ -9,14 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         >
-        <ImageView
-            android:id="@+id/backicon"
-            android:src="@drawable/back"
-            android:layout_margin="10dp"
-            android:layout_height="35dp"
-            android:layout_width="35dp"
-            android:layout_centerVertical="true"
-            />
 
         <Button
             android:id="@+id/writing_btn"
@@ -45,7 +37,7 @@
             />
 
         <EditText
-            android:id="@+id/boardwriting_recycler"
+            android:id="@+id/writing_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="17"

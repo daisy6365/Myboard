@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myboard.Adapter.PostAdapter
-import com.example.myboard.Client
+import com.example.myboard.Network.Client
 import com.example.myboard.Model.PostListDTO
 import com.example.myboard.R
 import kotlinx.android.synthetic.main.activity_board.*
@@ -36,6 +36,7 @@ class JobActivity : AppCompatActivity() {
 
 
         // 제목, 내용, 글쓴이(name), 좋아요 수 , 댓글 수
+
         Client.retrofitService.requestAllData(token)
                 .enqueue(object : Callback<PostListDTO>{
                     override fun onResponse(call: Call<PostListDTO>, response: Response<PostListDTO>) {

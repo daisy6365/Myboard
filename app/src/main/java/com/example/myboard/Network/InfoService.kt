@@ -1,4 +1,4 @@
-package com.example.myboard
+package com.example.myboard.Network
 
 import com.example.myboard.Model.LoginDTO
 import com.example.myboard.Model.PostListDTO

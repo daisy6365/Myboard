@@ -45,15 +45,6 @@
                 />
 
             <ImageView
-                android:id="@+id/report"
-                android:layout_marginRight="10dp"
-                android:layout_gravity="center_vertical"
-                android:layout_toLeftOf="@id/post_comment"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:src="@drawable/report"
-                />
-            <ImageView
                 android:id="@+id/post_comment"
                 android:layout_alignParentRight="true"
                 android:layout_gravity="center_vertical"

@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myboard.Adapter.PostAdapter
-import com.example.myboard.Client
+import com.example.myboard.Network.Client
 import com.example.myboard.Model.PostListDTO
 import com.example.myboard.R
 import kotlinx.android.synthetic.main.activity_board.*

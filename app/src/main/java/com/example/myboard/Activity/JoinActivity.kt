@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myboard.Client
+import com.example.myboard.Network.Client
 import com.example.myboard.R
 import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.activity_join.*
